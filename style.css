@@ -1,0 +1,30 @@
+* {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.container {
+  max-width: 2000px;
+}
+
+.site-header {
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #8e8e8e;
+  transition: color .15s ease-in-out;
+}
+.site-header a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.banner {
+  height: 80vh;
+  background-image: url('https://media.giphy.com/media/LP1S41cNoodryIuNu4/giphy-downsized-large.gif');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: space-around;
+}
+

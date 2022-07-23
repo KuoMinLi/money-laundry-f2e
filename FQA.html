@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/bootstrap-5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+TC:wght@300;400;500&family=Open+Sans:ital,wght@0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="FQA.css">
+</head>
+<body>
+
+  <header class="site-header sticky-top py-1">
+    <nav class="container col-10 d-flex flex-column flex-md-row justify-content-between">
+      <a class="py-2" href="#" aria-label="Product">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/></svg>
+      </a>
+      <a class="py-2 d-none d-md-inline-block" href="#">資訊查詢</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">遊戲專區</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">與我聯絡</a>
+      <a class="py-2 d-none d-md-inline-block" href="#">管理者登入</a>
+    </nav>
+  </header>
+<div class="container">
+  <div class="banner row justify-content-center align-items-center mb-5">
+    <h1 class="banner_text col-10">洗錢防制<br>資訊查詢專區</h1>
+  </div>
+
+  <div class="search-group d-flex row align-items-center mx-2">
+    <div class="align-items-center d-flex col-10 ">
+      <label class="col-4 col-md-3 fs-4 fs-md-3 py-3 rounded-start text-white" for="crop">關鍵字查詢</label>
+      <input class="form-control form-control-lg" type="text" placeholder="請輸入查詢內容" aria-label=".form-control-lg example">
+    </div>
+    <button type="button" class="col-2 fs-4 search text-white btn btn-dark">搜尋</button>
+  </div>
+
+  <div class="role row justify-content-around align-items-center mb-4 gap-4">
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-secondary">我是學生</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-secondary">我是上班族</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-secondary">我是金融人員</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-secondary">我是退休人員</button>
+  </div>
+  <div class="role row justify-content-around align-items-center mb-4 gap-4">
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-success">ATM提領轉帳</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-success">有價證券買賣</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-success">不動產交易</button>
+    <button type="button" class="btn-lg col-10 col-md-4 col-lg-2 btn btn-outline-success">外匯交易</button>
+  </div>
+</div>  
+</body>
+</html>
