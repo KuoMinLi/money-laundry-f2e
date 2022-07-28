@@ -1,0 +1,144 @@
+* {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
+  box-sizing: border-box; 
+}
+
+.contanier {
+  background-image: url('https://images.unsplash.com/photo-1598620617137-2ab990aadd37?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  margin: 0 auto;
+  margin-top: 60px;
+  height: 600px;
+  width: 800px;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  padding-left: 120px;
+  text-align: end;
+  position: relative;
+}
+
+.leftside {
+  width: 280px;
+}
+
+.man {
+  height: 300px;
+  background-image: url('https://media.giphy.com/media/qQJBEm2e9qOkh9W1Z7/giphy.gif');
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.w600 {
+  width: 600px;
+}
+
+.Gamestart {
+  margin-right: 80px;
+  width: 150px;
+  height: 80px;
+  border-radius: 10px;
+  border: 3px solid white;
+  font-size: 30px;
+}
+
+.title {
+  display: block;
+  font-size: 30px;
+  /* width: 300px; */
+  height: 120px;
+  padding: 0 10px;
+  overflow-wrap: break-word;
+}
+
+.itemarea {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.item {
+  text-align: center;
+  line-height: 70px;
+  width: 250px;
+  height: 70px;
+  font-size: 18px;
+}
+
+.dashed {
+  background-color: rgba(0,0,0,0);
+  border-width: 2px 3px 2px 5px;
+  border-radius: 90% 6% 93% 5% / 5% 94% 7% 95%;
+  /* 做出傾斜的視覺感 */
+  transform: rotate(2deg);
+  border: dashed black 2px;
+}
+
+.correct {
+  border: 5px dashed green;
+}
+
+.error {
+  border: 5px dashed red;
+}
+
+.news {
+  position: absolute;
+  width: 620px;
+  height: 400px;
+  background-image: url('/news.jpg');
+  z-index: 1;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.Gamereset {
+  position: absolute;
+  top: 350px;
+  right: 20px;
+}
+
+.news_area {
+  background-image: url('/image/newsbackgound.jpg');
+  width: 620px;
+  height: 400px;
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+}
+
+.date {
+  padding-top: 5px;
+  padding-right: 10px;
+  text-align: end;
+  margin-bottom: 90px;
+}
+
+.news_title {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.news_text {
+  display: flex;
+  font-size: 14px;
+}
+
+.news_description {
+  margin-left: 15px;
+  width: 160px;
+  text-align: start;
+}
+
+.news_law {
+  margin-left: 275px;
+  width: 160px;
+  text-align: start;
+}
