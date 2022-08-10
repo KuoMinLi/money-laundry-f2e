@@ -30,28 +30,42 @@ function nextAnimate() {
   itemarea.classList.add('animate__backInDown');
 }
 
+// let categories = 0;
+// // 取得遊戲關卡種類
+// (function getcategories(){
+//   return axios({
+//     method: 'get',
+//     baseURL: 'https://money-laundry.herokuapp.com/v1/api/categories',
+//     timeout: 2000,
+//   })
+//   .then((result) => {
+//     let categories = result.data.data;
+//     return categories;
+//   }).then(data => categories = data)
+// })();
+// setTimeout((() => console.log(categories)), 1500);
 
 // 取得遊戲關卡種類
 function getcategories(){
-  axios({
+  return axios({
     method: 'get',
     baseURL: 'https://money-laundry.herokuapp.com/v1/api/categories',
-    timeout: 2000,
+    timeout: 3000,
   })
   .then((result) => {
     let categories = result.data.data;
     rendercategories(categories);
 
-      // 按鈕關卡判斷邏輯
+    // 按鈕關卡判斷邏輯
     itemarea.addEventListener('click', (e) => {
       if (e.target.nodeName === 'BUTTON') {
         const { id } = e.target.dataset;
         categories.forEach((i) => {
           if (i.id == id) {            
             correctAnimate(e);
-            setTimeout((() => nextAnimate()), 1500);
             toString(i.id);
             setTimeout((() => getgamequestion(i.id,gamelevel)), 1500);
+            setTimeout((() => nextAnimate()), 2500);        
           }
         });
       }
@@ -66,36 +80,35 @@ function getcategories(){
 
 // 取得特定種類關卡題目
 function getgamequestion(id, level) {
-  axios({
+  return axios({
     method: 'get',
     baseURL: `https://money-laundry.herokuapp.com/v1/api/categories/${id}`,
-    timeout: 2000,
+    timeout: 3000,
   })
   .then((result) => {
     newsTitle.textContent = `${result.data.data.type}反受害 洗錢詐騙新招`;
     let gamequestion = result.data.data.Games;
     renderquestion(gamequestion,level);
     const gameid = gamequestion[`${level}`-1].id;
-    getgameitems(gameid);
+    return getgameitems(gameid);
   })
 }
-
 // 取得特定種類關卡選項
 function getgameitems(gameid) {
-  axios({
+  return axios({
     method: 'get',
     baseURL: `https://money-laundry.herokuapp.com/v1/api/games/${gameid}`,
-    timeout: 2000,
+    timeout: 3000,
   })
   .then((result) => {
     let gameitems = result.data.data.Items;
     let gameid = result.data.data.Category.id;
     renderitems(gameitems);
-
     // 按鈕關卡判斷邏輯
     itemarea.addEventListener('click', (e) => {
       if (e.target.nodeName === 'BUTTON') {
         const { id } = e.target.dataset;
+        e.target.disabled = true;
         gameitems.forEach((i) => {
           if (i.id == id) {
             if (i.ans) {
@@ -104,9 +117,12 @@ function getgameitems(gameid) {
                 console.log('win');
               } else {
                 gamelevel += 1;
-                setTimeout((() => nextAnimate()), 1500);
                 setTimeout((() => getgamequestion(gameid,gamelevel)), 1000);
+                setTimeout((() => nextAnimate()), 2500);
+                setTimeout((() => e.target.disabled = false), 2500);
               }
+            } else {
+              errorAnimate(e, i);
             }
           }
         });
@@ -153,26 +169,14 @@ function getdate() {
   date.textContent = str;
 }
 
-// 數據整理
-function chooseData(num, str) {
-  data.forEach((i) => {
-    if (num === i.level && str === i.type) {
-      const {
-        type, level, title, item,
-      } = i;
-      render(type, level, title, item);
-    }
-  });
-}
-
 // 遊戲開始
-function start() {
-  getcategories();
+async function start() {
+  await getcategories();
   getdate();
-  setTimeout((() => renderstart()), 1000);
+  startAnimate();
 }
 // 遊戲開始動畫
-function renderstart() {
+function startAnimate() {
   contanier.classList.add('d-flex');
   Gamestart.classList.add('d-none');
   itemarea.classList.remove('d-none');
@@ -180,6 +184,15 @@ function renderstart() {
   titletext.classList.add('text-start');
   man.classList.remove('w600');
   man.style.backgroundImage = `url(${gamemanImage})`;
+}
+
+// 錯誤彈出動畫
+function errorAnimate(e, item) {
+  e.target.classList.add('error');
+  man.style.backgroundImage = `url(${gamemanError})`;
+  newsArea.classList.remove('d-none');
+  newsDescription.textContent = `${item.description}`;
+  newsLaw.textContent = `${item.law}`;
 }
 
 // 回到主遊戲
@@ -192,7 +205,9 @@ function reset() {
   newsArea.classList.add('d-none');
   man.style.backgroundImage = `url(${gameman})`;
   gamelevel = 1;
-  gametype = '詐騙';
+  categories = '';
+  gamequestion = '';
+  gameitems = '';
 }
 
 // 監聽按鈕
