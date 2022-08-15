@@ -1,5 +1,14 @@
 * {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Edu VIC WA NT Beginner', '辰宇落雁體 Thin';
+}
+
+
+body {
+  background-color: rgb(253,251,249);
+}
+
+.btn {
+  background-color: white
 }
 
 .container {

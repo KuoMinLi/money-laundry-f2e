@@ -1,5 +1,5 @@
 * {
-  font-family: 'Edu VIC WA NT Beginner', cursive;
+  font-family: 'Edu VIC WA NT Beginner', '辰宇落雁體 Thin';
   box-sizing: border-box; 
 }
 
@@ -46,7 +46,7 @@
 
 .title {
   display: block;
-  font-size: 30px;
+  font-size: 45px;
   /* width: 300px; */
   height: 120px;
   padding: 0 10px;
@@ -66,7 +66,7 @@
   line-height: 70px;
   width: 250px;
   height: 70px;
-  font-size: 18px;
+  font-size: 24px;
   overflow: hidden;
 }
 
@@ -87,17 +87,6 @@
   border: 5px dashed red;
 }
 
-.news {
-  position: absolute;
-  width: 620px;
-  height: 400px;
-  background-image: url('/news.jpg');
-  z-index: 1;
-  background-position:center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
 .Gamereset {
   position: absolute;
   top: 350px;
@@ -115,6 +104,7 @@
 }
 
 .date {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
   padding-top: 5px;
   padding-right: 10px;
   text-align: end;
@@ -122,17 +112,20 @@
 }
 
 .news_title {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
   font-weight: bold;
   text-align: center;
   margin-bottom: 18px;
 }
 
 .news_text {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
   display: flex;
   font-size: 14px;
 }
 
 .news_description {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
   margin-left: 15px;
   width: 160px;
   height: 150px;
@@ -141,6 +134,7 @@
 }
 
 .news_law {
+  font-family: 'Edu VIC WA NT Beginner', cursive;
   margin-left: 275px;
   width: 160px;
   height: 150px;
