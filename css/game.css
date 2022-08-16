@@ -94,7 +94,7 @@
 }
 
 .news_area {
-  background-image: url('/image/newsbackgound.jpg');
+  background-image: url('../image/newspaper.jpg');
   width: 620px;
   height: 400px;
   background-position:center;

@@ -59,12 +59,11 @@ function getcategories(){
     // 按鈕關卡判斷邏輯
     itemarea.addEventListener('click', (e) => {
       if (e.target.nodeName === 'BUTTON') {
-        const { id } = e.target.dataset;
-        categories.forEach((i) => {
-          if (i.id == id) {            
+        const { id } = e.target?.dataset;
+        categories.forEach((index) => {
+          if (index.id == id) {            
             correctAnimate(e);
-            toString(i.id);
-            setTimeout((() => getgamequestion(i.id,gamelevel)), 1500);
+            setTimeout((() => getgamequestion(index.id,gamelevel)), 1500);
             setTimeout((() => nextAnimate()), 2500);        
           }
         });
@@ -101,8 +100,8 @@ function getgameitems(gameid) {
     timeout: 3000,
   })
   .then((result) => {
-    let gameitems = result.data.data.Items;
-    let gameid = result.data.data.Category.id;
+    const gameitems = result.data.data.Items;
+    const gameid = result.data.data.Category.id;
     renderitems(gameitems);
     // 按鈕關卡判斷邏輯
     itemarea.addEventListener('click', (e) => {
@@ -135,8 +134,8 @@ function getgameitems(gameid) {
 // 關卡種類畫面渲染
 function rendercategories(arr) {
   let str = '';
-  arr.forEach((i) => {
-    str += `<button class="item dashed"  data-id="${i.id}">${i.type}</button>`;
+  arr.forEach(({ id, type }) => {
+    str += `<button class="item dashed"  data-id="${id}">${type}</button>`;
   });
   itemarea.innerHTML = str;
   titletext.textContent = `請選擇遊戲關卡`;
@@ -160,13 +159,11 @@ function renderitems(arr) {
 
 // 取得日期
 function getdate() {
-  let str = '';
   const dateObject = new Date();
   const day = dateObject.getDate();
   const month = dateObject.getMonth();
   const year = dateObject.getFullYear();
-  str += `${year}年${month + 1}月${day}日`;
-  date.textContent = str;
+  date.textContent += `${year}年${month + 1}月${day}日`;
 }
 
 // 遊戲開始
